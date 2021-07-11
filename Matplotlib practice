@@ -1,0 +1,18 @@
+import IPython
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from  ipywidgets import interact
+
+
+@interact(num_points = [10, 20, 40, 80, 160, 320])
+def draw_mystery_function_scatter(num_points):
+    t_values = np.linspace(-10,10,num_points) # this generates num_points equally spaced values of t  between -10 and 10 
+    x_values, y_values = mystery_function(t_values)
+    plt.scatter(x_values, y_values)
+    plt.title("Number of points = " + str(num_points))
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.grid(True) # try doing plt.grid(False)
+    plt.show()
+    
